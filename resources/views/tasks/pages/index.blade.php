@@ -13,12 +13,13 @@
                     <h3>
                         {{ link_to_route('tasks.show',"{$task->title}", ['id' => $task->id], ['class' => 'previewArticle']) }}
                     </h3>
+                    Автор: {{ $task->author }}
                 </div>
             </div>
             <div class="content-footer">
-                <div style="float: left;" class="actionArticle">
-                    {{ link_to_route('tasks.edit', null, ['id' => $task->id], ['class' => 'btn glyphicon glyphicon-pencil edit']) }}
-                    {{ link_to_route('tasks.destroy', null, ['id' => $task->id], ['class' => 'btn glyphicon glyphicon-remove delete']) }}
+                <div style="float: left;" >
+                    {{ link_to_route('tasks.edit', 'Ред.', ['id' => $task->id]) }}
+                    {{ link_to_route('tasks.destroy', 'Удал.', ['id' => $task->id]) }}
 
                 </div>
                 <div style="float: right;">
@@ -32,5 +33,7 @@
     </div>
     @endforeach
 
+
+    <div class="glyphicons glyphicons-dog"></div>
 @endsection
 

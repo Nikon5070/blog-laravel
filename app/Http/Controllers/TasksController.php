@@ -84,11 +84,11 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Tasks::find($id);
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->author = 'Nikita';
-        $post->save();
+        $task = Tasks::find($id);
+        $task->title = $request->title;
+        $task->content = $request->content;
+        $task->author = 'Nikita';
+        $task->save();
 
         $request->session()->flash('success', 'Задача редактирована успешна!');
 
@@ -103,6 +103,11 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Tasks::find($id);
+
+        $task->delete();
+
+        return redirect()->route('tasks.index');
+
     }
 }

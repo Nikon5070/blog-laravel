@@ -82,14 +82,7 @@ aside .content-footer>img {
     display: block;
 }
 
-.btn {
+.glyphicon {
     color: white;
-}
-
-.edit, .delete {
     padding: 0px 10px 0px 0px;
-}
-
-.actionArticle {
-    display: none;
 }

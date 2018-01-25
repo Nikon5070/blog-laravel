@@ -1,7 +1,25 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 25.01.2018
- * Time: 15:02
- */
+
+
+
+
+@extends('tasks.tasks-pattern')
+
+@section('title', "Просмотр задачи")
+
+
+@section('content')
+
+    <h1><b>{{ $task->title }}</b></h1>
+    <p>Обновлено: {{Carbon\Carbon::parse($task->updated_at)->format('d.m.Y') }}</p>
+    <h3>{{$task->content}}</h3>
+    <p>Автор: {{ $task->author }}</p>
+
+    {{link_to_route('tasks.edit','Редактировать',['id' => $task->id],['class' => 'btn btn-primary'])}}
+
+
+    {!! Form::open(['method' => 'DELETE', 'route' => ['tasks.destroy', $task->id]]) !!}
+    {!! Form::submit('Удалить', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
+
+
+@endsection

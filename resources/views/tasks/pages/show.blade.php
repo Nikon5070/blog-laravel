@@ -12,6 +12,10 @@
 
 {{link_to_route('tasks.edit','Редактировать',['id' => $task->id],['class' => 'btn btn-primary'])}}
 
+    {!! Form::open(['method' => 'DELETE', 'route' => ['tasks.destroy', $task->id]]) !!}
+    {!! Form::submit('Удалить', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
+
 
 @endsection
 
