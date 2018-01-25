@@ -14,7 +14,10 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return 'hello';
+        $tasks = Tasks::all();
+
+        return view('tasks.pages.index')->withTasks($tasks);
+
     }
 
     /**
@@ -41,10 +44,9 @@ class TasksController extends Controller
         $post->author = 'Nikita';
         $post->save();
 
-        $request->session()->flash('success', 'Task was successful!');
+        $request->session()->flash('success', 'Задача добавлена!');
 
-        return view('tasks.pages.index');
-
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -55,7 +57,9 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Tasks::find($id);
+
+        return view('tasks.pages.show')->withTask($task);
     }
 
     /**
@@ -66,7 +70,9 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Tasks::find($id);
+
+        return view('tasks.pages.edit')->withTask($task);
     }
 
     /**
@@ -78,7 +84,15 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Tasks::find($id);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->author = 'Nikita';
+        $post->save();
+
+        $request->session()->flash('success', 'Задача редактирована успешна!');
+
+        return redirect()->route('tasks.index');
     }
 
     /**
