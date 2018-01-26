@@ -101,7 +101,7 @@ class TasksController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $task = Tasks::find($id);
 

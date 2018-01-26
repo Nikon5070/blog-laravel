@@ -18,8 +18,8 @@
             </div>
             <div class="content-footer">
                 <div style="float: left;" >
-                    {{ link_to_route('tasks.edit', 'Ред.', ['id' => $task->id]) }}
-                    {{ link_to_route('tasks.destroy', 'Удал.', ['id' => $task->id]) }}
+                    {{ link_to_route('tasks.edit', '', ['id' => $task->id], ['class' => 'glyphicon glyphicon-pencil']) }}
+                    {{ link_to_route('tasks.delete', '', ['id' => $task->id], ['class' => 'glyphicon glyphicon-remove']) }}
 
                 </div>
                 <div style="float: right;">

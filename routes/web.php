@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('tasks','TasksController');
+
+Route::get('/tasks/{id}/delete','TasksController@delete')->name('tasks.delete');
