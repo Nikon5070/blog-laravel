@@ -19,6 +19,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('tasks','TasksController');
 
-Route::get('/tasks/{id}/delete','TasksController@delete')->name('tasks.delete');
+Route::resource('tasks', 'TasksController');
+
+Route::get('/tasks/{id}/delete', 'TasksController@delete')->name('tasks.delete');
+
+
+Route::get('/mail', 'MailSetting@index')->name('tasks.mail');
+
+Route::post('/sendmail', function (\Illuminate\Http\Request $request, Illuminate\Mail\Mailer $mailer) {
+    $mailer
+        ->to($request->input('mail'))
+        ->send( new \App\Mail\MailClass($request->input('title')));
+    return redirect()->back();
+})->name('sendmail');
+
+
+
+

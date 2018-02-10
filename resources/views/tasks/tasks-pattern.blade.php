@@ -19,6 +19,7 @@
     <ul class="nav navbar-nav">
         <li>{{link_to_route('tasks.index','Список задач', null,['class' => 'nav-link'])}}</li>
         <li>{{link_to_route('tasks.create','Добавить задачу', null,['class' => 'nav-link'])}}</li>
+        <li>{{link_to_route('tasks.mail','Отправить сообщение', null,['class' => 'nav-link'])}}</li>
     </ul>
 </nav>
 
